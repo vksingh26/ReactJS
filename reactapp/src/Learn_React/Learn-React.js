@@ -7,8 +7,7 @@ const learnReact = (props) => {
     // {props.children} is the way to bind children dynamically, check app js for children element which is 'my hobby is to ...'
     return (
         <div>
-            <h3>I am learning {props.name} and spent almost {props.timeSpent} mins till now!!!</h3>
-            <h2>{props.children}</h2>
+            <h2>{props.name} made a revenue of {props.revenue}</h2>
         </div>);
 }
 
