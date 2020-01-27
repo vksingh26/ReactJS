@@ -5,9 +5,9 @@ import LearnReact from './Learn_React/Learn-React';
 class App extends Component {
     state = {
         apm: [
-            {name: "Alipay", revenue: "$35734"},
-            {name: "Wechat", revenue: "$44565"},
-            {name: "Klarna", revenue: "$46733"}
+            {id:"1", name: "Alipay", revenue: "$35734"},
+            {id:"2", name: "Wechat", revenue: "$44565"},
+            {id:"3", name: "Klarna", revenue: "$46733"}
         ],
         showContent: false
     }
@@ -53,6 +53,12 @@ class App extends Component {
         this.setState({showContent: doesShow});
     }
 
+    deleteContent = (contentIndex) =>{
+        const apm = [...this.state.apm];
+        apm.splice(contentIndex, 1);
+        this.setState({apm: apm});
+    }
+
     render(){
         const buttonStyle = {
             backgroundColor: 'orange',
@@ -62,7 +68,8 @@ class App extends Component {
             padding: '8px',
             borderRadius: '10px',
             color: 'white',
-            boxShadow: '2px 5px 5px #ccc'
+            boxShadow: '2px 5px 5px #ccc',
+            marginLeft: '25px'
         }
 
         let content = null;
@@ -76,6 +83,19 @@ class App extends Component {
                 </div>
             );
         }
+
+        //work on generating list
+        let listContent = null;
+        if(this.state.showContent){
+            listContent = (
+                <div>
+                    {this.state.apm.map((listItem, index) => {
+                        return <LearnReact name={listItem.name} revenue={listItem.revenue} key={listItem.id} click={() => this.deleteContent(index)}/>
+                    })}
+                </div>
+            );
+        }
+
         return (
         <div className="App" >
             <h1> First React App </h1>
@@ -91,6 +111,7 @@ class App extends Component {
                 </div> : null
             }
             {content}
+            {listContent}
         </div>
         );
         //below line is used to create element using react createelement method, but its kind of cumbersome process if we want to create multiple elements
