@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LearnReact from './Learn_React/Learn-React';
+import Radium from 'radium'
 
 class App extends Component {
     state = {
@@ -69,7 +70,11 @@ class App extends Component {
             borderRadius: '10px',
             color: 'white',
             boxShadow: '2px 5px 5px #ccc',
-            marginLeft: '25px'
+            marginLeft: '25px',
+            // ':hover': { this is the way to add psuedo class in react using radium
+            //     backgroundColor: 'pink',
+            //     color: 'white'
+            // }
         }
 
         let content = null;
@@ -94,29 +99,56 @@ class App extends Component {
                     })}
                 </div>
             );
+            //this is the way to add psuedo classes in react using radium
+            // buttonStyle.backgroundColor = 'green';
+            // buttonStyle[':hover'] = {
+            //     backgroundColor: 'lightgreen',
+            //     color: 'white'
+            // }
         }
 
+        
+        const classes = ['red', 'bold'].join(' ');
         return (
-        <div className="App" >
+          <div className="App">
             <h1> First React App </h1>
-            <button style={buttonStyle} onClick={this.stateHandler.bind(this, 'Alipay!!')} > Click To Change State </button>
-            <button style={buttonStyle} onClick={this.toggleContent}>Toggle Type 1</button>
-            { 
-                this.state.showContent ?
-                <div>
-                    <LearnReact name={this.state.apm[0].name} revenue={this.state.apm[0].revenue}></LearnReact>
-                    <LearnReact name={this.state.apm[1].name} revenue={this.state.apm[1].revenue} 
-                    click={this.stateHandler.bind(this, 'APM: Alipay!!')} change={this.inputChangeHandler}></LearnReact>
-                    <LearnReact name={this.state.apm[2].name} revenue={this.state.apm[2].revenue}></LearnReact>
-                </div> : null
-            }
+            <div className={classes}>
+              <p1>Css is handled using dynamic css</p1>
+            </div>
+            <button
+              style={buttonStyle}
+              onClick={this.stateHandler.bind(this, "Alipay!!")}>
+              {" "}
+              Click To Change State{" "}
+            </button>
+            <button style={buttonStyle} onClick={this.toggleContent}>
+              Toggle Type 1
+            </button>
+            {this.state.showContent ? (
+              <div>
+                <LearnReact
+                  name={this.state.apm[0].name}
+                  revenue={this.state.apm[0].revenue}
+                ></LearnReact>
+                <LearnReact
+                  name={this.state.apm[1].name}
+                  revenue={this.state.apm[1].revenue}
+                  click={this.stateHandler.bind(this, "APM: Alipay!!")}
+                  change={this.inputChangeHandler}
+                ></LearnReact>
+                <LearnReact
+                  name={this.state.apm[2].name}
+                  revenue={this.state.apm[2].revenue}
+                ></LearnReact>
+              </div>
+            ) : null}
             {content}
             {listContent}
-        </div>
+          </div>
         );
         //below line is used to create element using react createelement method, but its kind of cumbersome process if we want to create multiple elements
         //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'This element is created using react.createElement method!!!'));
     }
 }
 
-export default App;
+export default Radium(App);
