@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import LearnReact from './Learn_React/Learn-React';
-import Radium from 'radium'
+//import Radium from 'radium'
+//import styled from 'styled-components';
 
 class App extends Component {
     state = {
@@ -12,7 +13,8 @@ class App extends Component {
         ],
         showContent: false
     }
-
+     
+    
     stateHandler = (newName) =>{
         this.setState({
             apm: [{
@@ -113,7 +115,7 @@ class App extends Component {
           <div className="App">
             <h1> First React App </h1>
             <div className={classes}>
-              <p1>Css is handled using dynamic css</p1>
+              <p>Css is handled using dynamic css</p>
             </div>
             <button
               style={buttonStyle}
@@ -151,4 +153,4 @@ class App extends Component {
     }
 }
 
-export default Radium(App);
+export default App;
