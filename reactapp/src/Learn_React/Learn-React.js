@@ -19,28 +19,16 @@ const learnReact = (props) => {
     //stateful and stateless/dump components
     //below (return method) is the stateless component as its not maintaining any state
     //in the next page i.e learn-react.js has the stateful component as it maitains the state of the component.
+    const rand = Math.random();
+    if(rand > 0.7){
+        throw new Error('Oops!!! Something went wrong');
+    }
     return (
         // <div className="Person">
-        <
-        StyledDiv >
-        <
-        h2 onClick = {
-            props.click
-        } > {
-            props.name
-        }
-        made a revenue of {
-            props.revenue
-        } < /h2> <
-        input type = "text"
-        onChange = {
-            props.change
-        }
-        value = {
-            props.name
-        }
-        /> < /
-        StyledDiv >
+        <StyledDiv>
+            <h2 onClick = {props.click}> {props.name}!!! made a revenue of {props.revenue} </h2> 
+            <input type = "text" onChange={props.change} value={props.name}/> 
+        </StyledDiv >
         // < /div>
     );
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LearnReact from './Learn_React/Learn-React';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 //import Radium from 'radium'
 //import styled from 'styled-components';
 
@@ -97,7 +98,11 @@ class App extends Component {
             listContent = (
                 <div>
                     {this.state.apm.map((listItem, index) => {
-                        return <LearnReact name={listItem.name} revenue={listItem.revenue} key={listItem.id} click={() => this.deleteContent(index)}/>
+                        return <ErrorBoundary key={listItem.id}>
+                                <LearnReact name={listItem.name} 
+                                revenue={listItem.revenue}  
+                                click={() => this.deleteContent(index)}/>
+                            </ErrorBoundary>
                     })}
                 </div>
             );
