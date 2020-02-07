@@ -1,6 +1,5 @@
 import React from 'react';
 const cockpit = (props) =>{
-    debugger;
     const buttonStyle = {
         backgroundColor: 'orange',
         border: '1px solid orange',

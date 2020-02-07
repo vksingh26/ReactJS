@@ -2,7 +2,6 @@ import React from 'react';
 import LearnReact from "./Learn_React/Learn-React"
 
 const Coursetype = (props) => props.learnings.map((learning, index) => {
-    debugger;
     return <LearnReact 
     name={learning.name} 
     duration={learning.duration} 

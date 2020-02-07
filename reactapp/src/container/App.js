@@ -60,7 +60,6 @@ class App extends Component {
     }
 
     deleteContent = (contentIndex) =>{
-        debugger;
         const learning = [...this.state.learnings];
         learning.splice(contentIndex, 1);
         this.setState({learning: learning})
