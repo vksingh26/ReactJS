@@ -30,8 +30,17 @@ class App extends Component {
         console.log('[App.js] componentDidMount');
     }
     
-    componentWillMount() {
-        console.log('[App.js] componentWillMount');
+    // componentWillMount() { this belongs to the older version of react in new version react doesnot support it.
+    //     console.log('[App.js] componentWillMount');
+    // }
+
+    shouldComponentUpdate(prevProps, prevState) {
+        console.log('[App.js] shouldComponentUpdate!!!');
+        return true;
+    }
+
+    componentDidUpdate() {
+        console.log('[App.js] componentDidUpdate!!!');
     }
 
     stateHandler = (name) =>{
