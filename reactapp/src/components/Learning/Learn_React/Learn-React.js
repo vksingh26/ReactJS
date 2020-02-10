@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './Learn-React.css';
 
 import styled from 'styled-components';
+import Aux from '../../../hoc/Auxiliary';
 
 const StyledDiv = styled.div `
     width: 40%;
@@ -27,10 +28,12 @@ class LearnReact extends Component {
         // }
         return (
             // <div className="Person">
-            <StyledDiv>
-                <h2 onClick = {this.props.click}> {this.props.name}!!! made a revenue of {this.props.revenue} </h2> 
-                <input type = "text" onChange={this.props.changed} value={this.props.name}/> 
-            </StyledDiv >
+            <Aux>
+                <StyledDiv>
+                    <h2 onClick = {this.props.click}> {this.props.name}!!! made a revenue of {this.props.revenue} </h2> 
+                    <input type = "text" onChange={this.props.changed} value={this.props.name}/> 
+                </StyledDiv >
+            </Aux>
             // < /div>
         );
     }
