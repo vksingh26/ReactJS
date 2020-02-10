@@ -8,6 +8,10 @@ import Cockpit from '../components/Cockpit/Cockpit';
 //import styled from 'styled-components';
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        console.log('[App.js] constructor method!!')
+    }
     state = {
         learnings: [
             {id:"1", name: "AngularJS", Duration: "60days"},
@@ -17,7 +21,19 @@ class App extends Component {
         showContent: false
     }
      
+    static getDerivedStateFromProps(props, state) {
+        console.log('[App.js] getDerivedStateFromProps');
+        return state;
+    }
+
+    componentDidMount() {
+        console.log('[App.js] componentDidMount');
+    }
     
+    componentWillMount() {
+        console.log('[App.js] componentWillMount');
+    }
+
     stateHandler = (name) =>{
         this.setState({
             learnings: [{
