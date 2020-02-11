@@ -14,9 +14,9 @@ class App extends Component {
     }
     state = {
         learnings: [
-            {id:"1", name: "AngularJS", Duration: "60days"},
-            {id:"2", name: "VueJS", revenue: "90days"},
-            {id:"3", name: "ReactJS", revenue: "35days"}
+            {id:"1", name: "AngularJS", duration: 60},
+            {id:"2", name: "VueJS", duration: 90},
+            {id:"3", name: "ReactJS", duration: 35}
         ],
         showContent: false
     }
@@ -47,15 +47,15 @@ class App extends Component {
         this.setState({
             learnings: [{
                     name: name,
-                    duration: "30days"
+                    duration: 30
                 },
                 {
                     name: "VueJS",
-                    duration: "45days"
+                    duration: 45
                 },
                 {
                     name: "ReactJS",
-                    duration: "40days"
+                    duration: 40
                 }
             ],
         })
@@ -65,15 +65,15 @@ class App extends Component {
         this.setState({
             learnings: [{
                     name: 'AngularJS',
-                    duration: "30days"
+                    duration: 30
                 },
                 {
                     name: event.target.value,
-                    duration: "45days"
+                    duration: 45
                 },
                 {
                     name: "ReactJS",
-                    duration: "$34467.33"
+                    duration: 40
                 }
             ]
         })
